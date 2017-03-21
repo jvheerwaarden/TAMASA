@@ -16,7 +16,7 @@ setwd("./ET_data")
 
 # Download 
 # Yield data
-download("https://www.dropbox.com/s/hj75xpohca9hmmh/TAMASA_train.csv.zip?raw=1", "TAMASA_train.csv.zip", mode="wb")
+download("https://www.dropbox.com/s/yz9om81jn9m0nui/TAMASA_train.csv.zip?raw=1", "TAMASA_train.csv.zip", mode="wb")
 unzip("TAMASA_train.csv.zip", overwrite=T)
 yield <- read.table("TAMASA_train.csv", header=T, sep=",")
 yield <- yield[c(1:2,4,6)]
