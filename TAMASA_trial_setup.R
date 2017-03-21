@@ -1,5 +1,5 @@
 #' TAMASA Ethiopia maize yield data setup
-#' Maize yield data courtesy TAMASA
+#' 2016 Ethiopia maize yield data courtesy TAMASA
 #' M. Walsh, J. v. Heerwaarden, March 2017
 
 # install.packages(c("downloader","rgdal","raster"), dependencies=T)
@@ -41,4 +41,8 @@ ygrid <- extract(grids, yield)
 yield <- as.data.frame(yield)
 yield <- cbind.data.frame(yield, ygrid)
 # yield <- unique(na.omit(yield)) ## includes only unique & complete records
+
+# Plots
+plot(grids$CRP, axes=F)
+points(yield.proj, pch=3, col="red", cex=1)
 
