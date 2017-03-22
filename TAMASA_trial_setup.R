@@ -1,4 +1,4 @@
-#' TAMASA Ethiopia maize yield data setup
+#' TAMASA Ethiopia maize yield data prediction setup
 #' 2016 Ethiopia maize yield data courtesy TAMASA
 #' M. Walsh, J. Chamberlin, J. v. Heerwaarden, March 2017
 
@@ -48,4 +48,8 @@ yield <- cbind.data.frame(yield, ygrid)
 # Plots
 plot(grids$CRP, axes=F)
 points(yield.proj, pch=3, col="red", cex=1)
+
+# Write files -------------------------------------------------------------
+write.csv(yield, "TAMASA_yields.csv", row.names=F)
+
 
