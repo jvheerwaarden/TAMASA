@@ -1,4 +1,4 @@
-#' TAMASA Ethiopia maize yield data prediction
+#' TAMASA Ethiopia maize yield prediction
 #' 2016 Ethiopia maize yield data courtesy TAMASA
 #' M. Walsh, J. Chamberlin, J. v. Heerwaarden, March 2017
 
@@ -41,7 +41,7 @@ typ.bar <- train(x, y,
                  seed = 123)
 print(typ.bar) ## training results
 typ.imp <- varImp(typ.bar)
-plot(typ.imp, col="black", cex=1.2, xlab="Model importance in BART prediction")
+plot(typ.imp, col="black", cex=1.2, xlab="Variable importance in BART prediction")
 
 # Model predictions
 # bar.pred <- predict(grids, typ.bar) ## spatial prediction, not run!
