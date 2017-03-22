@@ -43,11 +43,12 @@ projection(yield) <- projection(grids)
 ygrid <- extract(grids, yield)
 yield <- as.data.frame(yield)
 yield <- cbind.data.frame(yield, ygrid)
-# yield <- unique(na.omit(yield)) ## includes only unique & complete records
+yield <- unique(na.omit(yield)) ## includes only unique & complete records
 
 # Plots
-plot(grids$MDEM, axes=F)
+plot(grids$fPAR16, axes=F)
 points(yield.proj, pch=3, col="red", cex=1)
 
 # Write files -------------------------------------------------------------
 write.csv(yield, "TAMASA_yields.csv", row.names=F)
+
