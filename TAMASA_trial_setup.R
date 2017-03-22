@@ -26,8 +26,8 @@ yield$pdens <- yield$pdens*10000/16 ## convert to no. plants / ha
 yield$vtype <- ifelse(yield$vtype == "Improved_variety", 1, 0) ## recode variety type
 
 # Starter grids
-download("https://www.dropbox.com/s/b4rs1nwwy6ww3qt/ET_grids.zip?raw=1", "ET_grids.zip", mode="wb")
-unzip("ET_grids.zip", overwrite=T)
+download("https://www.dropbox.com/s/tfwo3gx677phjjo/ET_250m.zip?dl=0", "ET_250m.zip", mode="wb")
+unzip("ET_250m.zip", overwrite=T)
 glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 
@@ -46,7 +46,7 @@ yield <- cbind.data.frame(yield, ygrid)
 # yield <- unique(na.omit(yield)) ## includes only unique & complete records
 
 # Plots
-plot(grids$CRP, axes=F)
+plot(grids$MDEM, axes=F)
 points(yield.proj, pch=3, col="red", cex=1)
 
 # Write files -------------------------------------------------------------
