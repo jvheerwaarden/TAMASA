@@ -26,7 +26,7 @@ yield$pdens <- yield$pdens*10000/16 ## convert to no. plants / ha
 yield$vtype <- ifelse(yield$vtype == "Improved_variety", 1, 0) ## recode variety type
 
 # Starter grids
-download("https://www.dropbox.com/s/tfwo3gx677phjjo/ET_250m.zip?dl=0", "ET_250m.zip", mode="wb")
+download("https://www.dropbox.com/s/tfwo3gx677phjjo/ET_250m.zip?raw=1", "ET_250m.zip", mode="wb")
 unzip("ET_250m.zip", overwrite=T)
 glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
