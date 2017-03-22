@@ -1,6 +1,6 @@
 #' TAMASA Ethiopia maize yield data setup
 #' 2016 Ethiopia maize yield data courtesy TAMASA
-#' M. Walsh, J. v. Heerwaarden, March 2017
+#' M. Walsh, J. Chamberlin, J. v. Heerwaarden, March 2017
 
 # install.packages(c("downloader","rgdal","raster"), dependencies=T)
 suppressPackageStartupMessages({
@@ -13,14 +13,17 @@ suppressPackageStartupMessages({
 # Create a data folder in your current working directory
 dir.create("ET_data", showWarnings=F)
 setwd("./ET_data")
+getwd() ## check your current working directory
 
 # Download 
 # Yield data
 download("https://www.dropbox.com/s/yz9om81jn9m0nui/TAMASA_train.csv.zip?raw=1", "TAMASA_train.csv.zip", mode="wb")
 unzip("TAMASA_train.csv.zip", overwrite=T)
 yield <- read.table("TAMASA_train.csv", header=T, sep=",")
-yield <- yield[c(1:2,4,6)]
-names(yield) <- c("lat","lon","vtype","yield")
+yield <- yield[c(1:2,4,24:25,29,6)]
+names(yield) <- c("lat","lon","vtype","inof","orgf","pdens", "yield")
+yield$pdens <- yield$pdens*10000/16 ## convert to no. plants / ha
+yield$vtype <- ifelse(yield$vtype == "Improved_variety", 1, 0) ## recode variety type
 
 # Starter grids
 download("https://www.dropbox.com/s/b4rs1nwwy6ww3qt/ET_grids.zip?raw=1", "ET_grids.zip", mode="wb")
