@@ -51,5 +51,3 @@ points(yield.proj, pch=3, col="red", cex=1)
 
 # Write files -------------------------------------------------------------
 write.csv(yield, "TAMASA_yields.csv", row.names=F)
-
-
